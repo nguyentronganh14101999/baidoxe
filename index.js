@@ -19,6 +19,7 @@ io.on("connection", function (socket) {
 
   socket.on("espConnect", function (data) {
     console.log(data);
+	socket.emit('espConnected','Done')
 	//esp---------------------------------
   });
   socket.on("HenDen", function (data) {

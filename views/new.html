@@ -799,7 +799,9 @@ function UpdateData() {
   <script>
   var socket = io("http://localhost:3000/")
 
-  
+  socket.on('espConnected',()=>{
+    console.log('done')
+  })
   function HenDen() {
     var selectgioduoi = document.getElementById("gioduoi");
     var textgioduoi = selectgioduoi.options[selectgioduoi.selectedIndex].value;
