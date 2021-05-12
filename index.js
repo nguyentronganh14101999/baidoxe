@@ -1,6 +1,7 @@
 console.log("Server Start - Nodejs - 123");
 
 var express = require("express");
+var path = require('path')
 var app = express();
 //goifile public
 app.use(express.static('public'));
@@ -73,6 +74,9 @@ app.get("/",function(req,res){
 	//res.render("html"); hoặc
 	res.render("index");
 });
-
+app.get("/home",function(req,res){
+	//res.render("html"); hoặc
+	res.sendFile(path.join(__dirname,'./views/new.html'));
+});
 
 
