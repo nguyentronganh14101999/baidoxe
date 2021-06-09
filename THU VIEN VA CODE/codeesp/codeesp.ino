@@ -20,7 +20,7 @@ extern bool connect;
 
 
 const char* ssid     = "Manchester UTD";
-const char* password = "brunofernandes94";
+const char* password = "JadonsanchoMU";
 
 // Server Ip
 const char* server = "192.168.1.28";
