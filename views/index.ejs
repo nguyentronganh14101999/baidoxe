@@ -11,9 +11,14 @@
     <style>
 
     body{
-      background: #808080;
+      background: #ffffff;
       margin: 0;
     } 
+    .date,.time{
+        text-align: center;
+        margin-top: 10px;
+        font-size: 30px;
+    }
 	
 	</style>
 
@@ -108,7 +113,6 @@ function IsJsonString(str)
 
 
 
-
 	  
 </script>
 
@@ -121,14 +125,25 @@ function IsJsonString(str)
     
    
     
-
+<div class="clock">
+    <div class="date">
+        <span id="day"></span>
+        <span id="day1"></span>
+        <span id="month"></span>
+        <span id="year"></span>
+    </div>
+    <div class="time">
+        <span id="hour"></span>
+        <span id="minute"></span>
+    </div>
+</div>
 
     <section id="dashboard">
         <div class="dashboard container">
             
            <table width="700" height="400" border="6" cellpadding="10" align="center" >	 
 	 <tr>
-	      <th bgcolor="#FF9900"  colspan="5"> <center> <font size="10"> <span style = "color: red"> Trạng thái bãi dỗ xe</span></font></center></th>
+	      <th bgcolor="#FF9900"  colspan="5"> <center> <font size="10"> <span style = "color: red"> Trạng thái bãi đỗ xe</span></font></center></th>
 	 </tr>	 
 	 <tr>
         
@@ -194,7 +209,49 @@ function IsJsonString(str)
 	
     <!-- End Contact Section -->
     
-
+<script>
+var day = document.getElementById('day')
+var day1 = document.querySelector('#day1')
+var month = document.querySelector('#month')
+var year = document.querySelector('#year')
+var hour = document.querySelector('#hour')
+var minute = document.querySelector('#minute')
+setInterval(()=>{
+    var now = new Date()
+    switch (now.getDay()){
+        case 1:
+        day.innerHTML='Monday, '
+            break
+        case 2:
+        day.innerHTML='Tuesday, '
+            break
+        case 3:
+        day.innerHTML='Wednesday, '
+            break
+        case 4:
+        day.innerHTML='Thursday, '
+            break
+        case 5:
+        day.innerHTML='Friday, '
+            break
+        case 6:
+        day.innerHTML='Saturday, '
+            break
+        case 7:
+        day.innerHTML='Sunday, '
+            break
+        }
+    day1.innerHTML=now.getDate()+'/'
+    month.innerHTML=now.getMonth()+1+'/'
+    year.innerHTML=now.getFullYear()
+    if(now.getHours()>=10)
+    hour.innerHTML=now.getHours()+' :'
+    else hour.innerHTML='0'+now.getHours()+' :'
+    if(now.getMinutes()>=10)
+    minute.innerHTML=now.getMinutes()
+    else minute.innerHTML='0'+now.getMinutes()
+},1000)
+</script>
 </body>
 
 
