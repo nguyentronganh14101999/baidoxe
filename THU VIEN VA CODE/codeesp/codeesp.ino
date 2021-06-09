@@ -19,9 +19,8 @@ extern bool connect;
 #include <ArduinoJson.h>// 6.10.0
 
 
-const char* ssid = "TDHGT";
-const char* pass = "tdhgt@2021";
-
+const char* ssid     = "Manchester UTD";
+const char* password = "brunofernandes94";
 
 // Server Ip
 const char* server = "192.168.1.28";
@@ -66,7 +65,7 @@ long last = 0;
 
 void setupNetwork()
 {
-  WiFi.begin(ssid, pass);
+  WiFi.begin(ssid, password);
   Serial.print("Connecting");
   while (WiFi.status() != WL_CONNECTED)
   {
@@ -83,11 +82,9 @@ void handleMessage(const char* message , size_t length)
   Serial.print("Data nhận được: ");
   Serial.println(message);
   Data = message;
-//xuử lý dữ liệu
-//gửi mega
-//mySerial.println(Data)
 
-  ParseJson(String(Data));//gui du liêu web
+
+  ParseJson(String(Data));
   
 
   Data = "";
